@@ -1,9 +1,10 @@
 # Bitcoin-HD-Wallet
 
 
-An HD wallet is a public/private key tree all starting from a root node. 
-It has a tree structure where each node extends to a private and public key.
-The master private key is unable to sign transactions it just generates key pairs. 
+An HD wallet is a public/private key tree. 
+It has a tree structure where each node extends to a private and public key starting from the root.
+The master private key is unable to sign transactions, it just generates key pairs. 
+This HD wallet is compatible with Bitcoin.
 
 ## Libraries used
 * bip39-- for mnemonic generation
