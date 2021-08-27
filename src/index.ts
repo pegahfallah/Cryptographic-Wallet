@@ -14,9 +14,6 @@ const seed = bip39.mnemonicToSeed(mnemonic).toString(); //creates seed buffer
 console.log('Seed: ' + seed);
 console.log('mnemonic: ' + mnemonic);
 
-
-
-
 //address generation
 // root of the node tree 
 // masterPrivatKey
