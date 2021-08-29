@@ -5,13 +5,13 @@ var hdkey = require('hdkey');
 var createHash = require('create-hash');
 var btcLib = require('bitcoinjs-lib');
 var bs58check = require('bs58check');
+
 //master private key generation
 
 //mneumonic generation
 const mnemonic = bip39.generateMnemonic(); //generates string
 // const mnemonic = "gentle mutual speak consider mandate kingdom cash explain soul exile cabin squeeze";
 const seed = bip39.mnemonicToSeed(mnemonic).toString(); //creates seed buffer
-console.log('Seed: ' + seed);
 console.log('mnemonic: ' + mnemonic);
 
 //address generation
@@ -26,11 +26,12 @@ console.log('masterPrivateKey: ' + masterPrivateKey);
 //m / purpose' / coin_type' / account' / change / address_index
 
 const addrnode = root.derive("m/44'/0'/0'/0/0");
-console.log('addrnodePublicKey: '+ addrnode._publicKey)
 
 //GENERATING A BITCOIN ADDRESS FROM THE ADDRESS NODE
 //get public key
 const getPublicKey = addrnode._publicKey;
+console.log('addrnodePublicKey: '+ addrnode._publicKey.toString())
+
 //perform sha256 hashing on the public key 
 const sha256 =  createHash('sha256').update(getPublicKey).digest();
 //ripemd 160 hashing on the result of sha256
@@ -52,3 +53,4 @@ ripemd.copy(versionByte, 1) //extended result
 const bs58 = bs58check.encode(ripemd);
 
 console.log(bs58)
+
